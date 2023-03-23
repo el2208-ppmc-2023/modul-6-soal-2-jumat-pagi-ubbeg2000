@@ -67,19 +67,34 @@ struct Node* gabungkan_urutkan(struct Node* a, struct Node* b)
 
   
 //Fungsi untuk memasukkan urutan integer ke dalam linked list
-void push(struct Node** newHead, int new_data)
+void push(struct Node** head, int new_data)
 {
-	struct Node* new_node;
-
-	// membuat node untuk data baru
-	new_node =(struct Node*) malloc(sizeof(struct Node));
-		
-	// memasukkan data ke dalam list
+	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
 	new_node->data = new_data;
-
-	// mengganti head
-	new_node->next = (*newHead); 
-	(*newHead) = new_node;
+	new_node->next = NULL;
+	
+	if (*head == NULL) {
+		*head = new_node;
+		return;
+	}
+	
+	if ((*head)->data > new_data) {
+		new_data->next = *head;
+		**head = &new_data;
+	}
+	
+	struct Node* cur = *head;
+	while (cur != NULL) {
+		if (cur->data < new_data) {
+			cur = cur->next;
+		} else if (cur->next == NULL) {
+			cur->next = new_node;
+		} else {
+			new_node->next = cur->next;
+			cur->next = new_node;
+			break;
+		}
+	}
 }
   
 // fungsi untuk membalikkan isi linked list
@@ -129,7 +144,7 @@ int main()
 	printf("Masukkan Jarak Yang Ditempuh Pada Minggu 2(meter): ");
 	for (i = 0; i < m; i++) {
 		scanf("%d", &elemen_kedua[i]);
-		push(&kedua, elemen_kedua[i]);
+		push(&pertama, elemen_kedua[i]);
 	}
 	
 	//input linked list ketiga
@@ -140,18 +155,18 @@ int main()
 	printf("Masukkan Jarak Yang Ditempuh Pada Minggu 3(meter): ");
 	for (i = 0; i < o; i++) {
 		scanf("%d", &elemen_ketiga[i]);
-		push(&ketiga, elemen_ketiga[i]);
+		push(&pertama, elemen_ketiga[i]);
 	}
 	
 	//Ketika urutan integer dimasukkan ke linked list, urutannya menjadi 
 	//terbalik, maka perlu dibalikkan lagi agar seperti semula
-	reverse(&pertama);
-	reverse(&kedua);
-	reverse(&ketiga);
+// 	reverse(&pertama);
+// 	reverse(&kedua);
+// 	reverse(&ketiga);
 	
-	//Gabungkan dan urutkan ketiga linked list
-	temp = gabungkan_urutkan(pertama, kedua);
-	hasil = gabungkan_urutkan(temp, ketiga);
+// 	//Gabungkan dan urutkan ketiga linked list
+// 	temp = gabungkan_urutkan(pertama, kedua);
+// 	hasil = gabungkan_urutkan(temp, ketiga);
 
   	//Cetak output berupa urutan integer 
 	printf("\nJarak David Berlari Dari Kecil Ke Besar:\n");
