@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "1",
+      "setup": "make main",
+      "run": "./main",
+      "input": "2\r\n10 20\r\n3\r\n15 30 50\r\n3\r\n11 17 80",
+      "output": "10 meter\r\n11 meter\r\n15 meter\r\n17 meter\r\n20 meter\r\n30 meter\r\n50 meter\r\n80 meter",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    },
+    {
+      "name": "2",
+      "setup": "",
+      "run": "./main",
+      "input": "3\r\n10 12 16\r\n1\r\n20\r\n4\r\n15 19 21 23",
+      "output": "10 meter\r\n12 meter\r\n15 meter\r\n16 meter\r\n19 meter\r\n20 meter\r\n21 meter\r\n23 meter",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    },
+    {
+      "name": "3",
+      "setup": "",
+      "run": "./main",
+      "input": "3\r\n16 12 10\r\n1\r\n20\r\n4\r\n15 19 21 23",
+      "output": "10 meter\r\n12 meter\r\n15 meter\r\n16 meter\r\n19 meter\r\n20 meter\r\n21 meter\r\n23 meter",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    },
+    {
+      "name": "4",
+      "setup": "",
+      "run": "./main",
+      "input": "3\r\n16 12 10\r\n1\r\n20\r\n4\r\n15 23 19 21",
+      "output": "10 meter\r\n12 meter\r\n15 meter\r\n16 meter\r\n19 meter\r\n20 meter\r\n21 meter\r\n23 meter",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    },
+    {
+      "name": "5",
+      "setup": "",
+      "run": "./main",
+      "input": "2\r\n20 10\r\n3\r\n50 30 15\r\n3\r\n80 17 11",
+      "output": "10 meter\r\n11 meter\r\n15 meter\r\n17 meter\r\n20 meter\r\n30 meter\r\n50 meter\r\n80 meter",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    }
+  ]
+}
