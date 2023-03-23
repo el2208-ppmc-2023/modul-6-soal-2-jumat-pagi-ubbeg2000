@@ -80,7 +80,7 @@ void push(struct Node** head, int new_data)
 	
 	if ((*head)->data > new_data) {
 		new_node->next = *head;
-		**head = new_node;
+		**head = *new_node;
 	}
 	
 	struct Node* cur = *head;
