@@ -81,16 +81,18 @@ void push(struct Node** head, int new_data)
 	if ((*head)->data > new_data) {
 		new_node->next = *head;
 		**head = *new_node;
+		return;
 	}
 	
 	struct Node* cur = *head;
-	while (cur != NULL) {
-		if (cur->data < new_data) {
+	while (cur->next != NULL) {
+		if (cur->next->data < new_data) {
 			cur = cur->next;
-		} else if (cur->next == NULL) {
-			cur->next = new_node;
+		} else if (cur->next->next == NULL) {
+			cur->next->next = new_node;
+			return;
 		} else {
-			new_node->next = cur->next;
+			new_node->next = cur->next->next;
 			cur->next = new_node;
 			break;
 		}
