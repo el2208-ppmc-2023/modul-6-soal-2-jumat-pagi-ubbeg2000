@@ -51,8 +51,9 @@ void push(struct Node** head, int new_data)
 int main()
 {
 	//Deklarasi variabel-variabel
-	struct Node* linked_list = NULL, cur = NULL;
-	int n, v;
+	struct Node* linked_list = NULL;
+	struct Node* cur = NULL;
+	int n, v, i;
 	
 	//input linked list pertama
 	printf("Berapa Kali David Lari Pada Minggu 1: ");
